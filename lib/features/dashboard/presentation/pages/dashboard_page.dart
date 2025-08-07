@@ -22,6 +22,9 @@ class _DashboardPageState extends State<DashboardPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [Expanded(flex: 2, child: ClientsListPanel()), Expanded(flex: 3, child: OperationPanel())]);
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [Expanded(flex: 2, child: ClientsListPanel()), Expanded(flex: 3, child: OperationPanel())],
+    );
   }
 }

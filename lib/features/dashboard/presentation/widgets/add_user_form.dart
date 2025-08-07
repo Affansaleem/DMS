@@ -1,3 +1,4 @@
+import 'package:dms/core/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import '../../../../core/widgets/custom_text_field.dart';
@@ -72,17 +73,19 @@ class _UserFormState extends State<UserForm> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
+            Text(AppStrings.createClient, style: Theme.of(context).textTheme.headlineLarge),
+            Gap(40.0),
             CustomTextField(
               controller: _nameController,
-              hintText: 'Name',
-              validator: (value) => value!.isEmpty ? 'Enter name' : null,
+              hintText: AppStrings.name,
+              validator: (value) => value!.isEmpty ? AppStrings.enterName : null,
             ),
             const Gap(12),
             CustomTextField(
               controller: _emailController,
-              hintText: 'Email',
+              hintText: AppStrings.email,
               keyboardType: TextInputType.emailAddress,
-              validator: (value) => value!.isEmpty ? 'Enter email' : null,
+              validator: (value) => value!.isEmpty ? AppStrings.enterEmail : null,
             ),
             const Gap(12),
             GestureDetector(
@@ -90,29 +93,29 @@ class _UserFormState extends State<UserForm> {
               child: AbsorbPointer(
                 child: CustomTextField(
                   controller: _dobController,
-                  hintText: 'Date of Birth',
-                  validator: (value) => value!.isEmpty ? 'Select DOB' : null,
+                  hintText: AppStrings.dateOfBirth,
+                  validator: (value) => value!.isEmpty ? AppStrings.selectDateOfBirth : null,
                 ),
               ),
             ),
             const Gap(12),
             CustomTextField(
               controller: _countryCodeController,
-              hintText: 'Country Code',
-              validator: (value) => value!.isEmpty ? 'Enter country code' : null,
+              hintText: AppStrings.countryCode,
+              validator: (value) => value!.isEmpty ? AppStrings.enterCountryCode : null,
             ),
             const Gap(12),
             CustomTextField(
               controller: _passwordController,
-              hintText: 'Password',
+              hintText: AppStrings.password,
               obscureText: true,
-              validator: (value) => value!.isEmpty ? 'Enter password' : null,
+              validator: (value) => value!.isEmpty ? AppStrings.enterPassword : null,
             ),
             const Gap(12),
             CustomTextField(
               controller: _departmentController,
-              hintText: 'Department',
-              validator: (value) => value!.isEmpty ? 'Enter department' : null,
+              hintText: AppStrings.department,
+              validator: (value) => value!.isEmpty ? AppStrings.enterDepartment : null,
             ),
             const Gap(20),
             CustomButton(text: "Add User", onPressed: _submit),

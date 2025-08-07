@@ -3,8 +3,9 @@ import '../../data/models/user_model.dart';
 
 abstract class UserState extends Equatable {
   final UserModel? selectedUser;
+  final bool isAddingUser;
 
-  const UserState({this.selectedUser});
+  const UserState({this.selectedUser, this.isAddingUser = false});
 
   @override
   List<Object?> get props => [selectedUser];
@@ -32,4 +33,6 @@ class UserError extends UserState {
   List<Object> get props => [message];
 }
 
-class AddUserState extends UserState {}
+class AddUserState extends UserState {
+
+}

@@ -1,6 +1,7 @@
 import 'package:dms/config/theme/app_colors.dart';
 import 'package:dms/core/constants/app_strings.dart';
 import 'package:dms/core/widgets/custom_text_field.dart';
+import 'package:dms/features/dashboard/presentation/bloc/adding_user/adding_user_cubit.dart';
 import 'package:dms/features/dashboard/presentation/bloc/user_event.dart';
 import 'package:dms/features/dashboard/presentation/widgets/user_item_card.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +44,7 @@ class ClientsListPanel extends StatelessWidget {
                         padding: EdgeInsets.all(4.0),
                         decoration: BoxDecoration(shape: BoxShape.circle, color: AppColors.buttonPrimary),
                         child: IconButton(
-                          onPressed: () => context.read<UserBloc>().add(AddUserEvent()),
+                          onPressed: () => context.read<AddingUserCubit>().addUser(),
                           icon: Icon(Icons.add),
                         ),
                       ),

@@ -6,6 +6,7 @@ import 'package:dms/features/dashboard/presentation/bloc/user_bloc.dart';
 import 'package:dms/shared/cubit/sidebar_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'features/dashboard/presentation/bloc/adding_user/adding_user_cubit.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -16,6 +17,7 @@ class App extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => locator<SidebarCubit>()),
         BlocProvider(create: (_) => locator<UserBloc>()),
+        BlocProvider(create: (_) => locator<AddingUserCubit>()),
       ],
       child: MaterialApp.router(
         title: AppEnv.appName,

@@ -22,7 +22,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
   FutureOr<void> _addUser(AddUser event, Emitter<UserState> emit) async {
     _users.add(event.user);
-    emit(state);
+    emit(UserLoaded(users: List.from(_users)));
   }
 
   FutureOr<void> _updateUser(UpdateUser event, Emitter<UserState> emit) async {
