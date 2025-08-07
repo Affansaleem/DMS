@@ -27,6 +27,17 @@ class AppImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final imageWidget =
+        _isSvg
+            ? SvgPicture.asset(
+              assetPath,
+              width: width,
+              height: height,
+              fit: fit,
+              colorFilter: color != null ? ColorFilter.mode(color!, BlendMode.srcIn) : null,
+            )
+            : Image.asset(assetPath, width: width, height: height, fit: fit, color: color);
+
     return Material(
       color: Colors.transparent,
       borderRadius: BorderRadius.circular(borderRadius),
@@ -34,19 +45,7 @@ class AppImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(borderRadius),
         onTap: onTap,
         splashColor: Theme.of(context).splashColor,
-        child: Padding(
-          padding: padding ?? EdgeInsets.zero,
-          child:
-              _isSvg
-                  ? SvgPicture.asset(
-                    assetPath,
-                    width: width,
-                    height: height,
-                    fit: fit,
-                    colorFilter: ColorFilter.mode(color ?? Colors.black, BlendMode.srcIn),
-                  )
-                  : Image.asset(assetPath, width: width, height: height, fit: fit, color: color),
-        ),
+        child: Padding(padding: padding ?? EdgeInsets.zero, child: imageWidget),
       ),
     );
   }
